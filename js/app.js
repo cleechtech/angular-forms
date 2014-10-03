@@ -1,28 +1,45 @@
 
 var app = angular.module('angularForms', [
-	'ui.bootstrap'
+	'ui.bootstrap',
+	'ngAnimate',
+	'ui.router',
+	'EmailApp'
 ]);
 
+angular.module('EmailApp', [])
+.run(function($rootScope){
+	$rootScope.$on('$routeChangeError', function(e, curr, prev, rejection){
+		console.error('route change error!');
+		console.error(e, curr, prev, rejection);
+	});
+});
 
-function FormCtrl($http){
-	this.submit = function(isValid, data){
-		if(!isValid) return;
+// routing
+app.config(function($stateProvider, $urlRouterProvider, $locationProvider){
 
-		//submit the data to the server
-    	$http.post('/api/submit', data);
-    	console.log('Form submitted');
-	}
-}
+	$stateProvider.state('home', {
+		url: '/',
+		templateUrl: 'views/home.html'
+	});
 
-app.directive('customValidator', function(){
-	return {
-		require: 'ngModel',
-		link: function(scope, elem, attrs, ngModel){
-			console.log(ngModel)
-			// Angualar 1.3 Feature
-			// ngModel.$validators.myValidator = function(){
-			// 	console.log('this is my custom validator')
-			// }
+	var viewList = ['PriceMenu', 'MusicPlayer', 'SignupForm', 'GmailClone'];
+	var states = _.map(viewList, function(name){
+		return {
+			url: '/' + name,
+			templateUrl: 'views/' + name + '.html'
 		}
+	});
+
+	for(var i = 0; i < viewList.length; i++){
+		// add states
+		$stateProvider.state(viewList[i], states[i])
 	}
-})
+
+	$stateProvider.state('GmailClone.email', {
+		url: '/inbox/email/:id',
+		templateUrl: 'email.html'
+	})
+
+	$urlRouterProvider.otherwise('/')
+});
+

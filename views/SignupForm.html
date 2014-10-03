@@ -1,0 +1,23 @@
+<!-- make more like modeanalytics.com/signup -->
+
+<form name='myForm' 
+	ng-controller='FormCtrl as vm' 
+	ng-submit='vm.submit(myForm.$valid, data)' 
+	novalidate>
+	<input type='email' 
+		class='form-control'
+		placeholder='Your email'
+		minlength='5'
+		maxlength="100" 
+		name='myEmail'
+		ng-model='data.myEmail'
+		required>
+	<input type='url' 
+		name='myUrl'
+		class='form-control'
+		ng-model='data.myUrl'
+		custom-validator>
+	<button type='submit'>Submit</button>
+<!-- Angular 1.3 feature: <pre>{{ data.myUrl.$error.url | json}}</pre> -->
+ 	<alert ng-if='myForm.myEmail.$invalid' type="'danger'">There's an error with email field</alert>
+</form>

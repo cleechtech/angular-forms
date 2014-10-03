@@ -1,0 +1,21 @@
+<!-- Joyent pricing selector -->
+<div class='container' ng-controller='PriceMenuCtrl as ctrl'>
+	<div class='row'>
+		<div class='col-md-2 column' ng-repeat='category in ctrl.categories'>
+			<div class='header {{category.name}}'>
+				<h2>{{ category.display }}</h2>
+			</div>
+			<div class='instance clearfix' ng-repeat='instance in ctrl.instances'>
+				<div class='left pph'>${{instance.price}} per hour</div>
+				<div class='right'>
+					<ul>
+						<li>{{ instance.ram }} GIB</li>
+						<li>{{ instance.cpu }} vCPU</li>
+						<li>{{ instance.disk }} GB</li>
+						<li>{{ instance.netowork }} Gbit/s</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
