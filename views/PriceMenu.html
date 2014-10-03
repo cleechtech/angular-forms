@@ -1,11 +1,11 @@
 <!-- Joyent pricing selector -->
-<div class='container' ng-controller='PriceMenuCtrl as ctrl'>
+<div class='container' ng-controller='PriceMenuCtrl'>
 	<div class='row'>
-		<div class='col-md-2 column' ng-repeat='category in ctrl.categories'>
+		<div class='col-md-2 column' ng-repeat='category in categories'>
 			<div class='header {{category.name}}'>
 				<h2>{{ category.display }}</h2>
 			</div>
-			<div class='instance clearfix' ng-repeat='instance in ctrl.instances'>
+			<div class='instance clearfix' ng-repeat='instance in instances'>
 				<div class='left pph'>${{instance.price}} per hour</div>
 				<div class='right'>
 					<ul>

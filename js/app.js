@@ -3,16 +3,8 @@ var app = angular.module('angularForms', [
 	'ui.bootstrap',
 	'ngAnimate',
 	'ui.router',
-	'EmailApp'
+	'mediaPlayer'
 ]);
-
-angular.module('EmailApp', [])
-.run(function($rootScope){
-	$rootScope.$on('$routeChangeError', function(e, curr, prev, rejection){
-		console.error('route change error!');
-		console.error(e, curr, prev, rejection);
-	});
-});
 
 // routing
 app.config(function($stateProvider, $urlRouterProvider, $locationProvider){

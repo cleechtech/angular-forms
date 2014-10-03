@@ -1,5 +1,4 @@
-angular.module('EmailApp')
-.directive('email', function Email($timeout){
+app.directive('email', function Email($timeout){
 	return {
 		restrict: 'EA',
 		replace: true,

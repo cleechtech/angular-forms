@@ -1,5 +1,4 @@
-angular.module('EmailApp')
-.factory('InboxFactory', function InboxFactory($q, $http, $location){
+app.factory('InboxFactory', function InboxFactory($q, $http, $location){
 	var exports = {};
 
 	exports.messages = [];

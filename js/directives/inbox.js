@@ -1,6 +1,5 @@
 
-angular.module('EmailApp')
-.directive('inbox', function Inbox(){
+app.directive('inbox', function Inbox(){
 	return {
 		restrict: 'EA',
 		replace: true,

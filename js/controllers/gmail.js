@@ -1,9 +1,14 @@
+app.run(function($rootScope){
+	$rootScope.$on('$routeChangeError', function(e, curr, prev, rejection){
+		console.error('route change error!');
+		console.error(e, curr, prev, rejection);
+	});
+});
 
-angular.module('EmailApp')
-.controller('InboxCtrl', function InboxCtrl(){
+app.controller('InboxCtrl', function InboxCtrl(){
 	this.title = "My Inbox";
 })
 
-.controller('EmailCtrl', function EmailCtrl(){
+app.controller('EmailCtrl', function EmailCtrl(){
 	this.title = 'Loading...'
 })

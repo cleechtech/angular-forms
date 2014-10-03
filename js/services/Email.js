@@ -1,5 +1,4 @@
-angular.module('EmailApp')
-.factory('EmailFactory', function EmailFactory($q, $http, $stateParams){
+app.factory('EmailFactory', function EmailFactory($q, $http, $stateParams){
 	var exports = {};
 
 	exports.reply = function(message){

@@ -1,8 +1,6 @@
 app.controller('PriceMenuCtrl', function($scope, Instance){
 	$scope.categories = Instance.getCategories();
 	$scope.instances = Instance.getInstances();
-
-	
 });
 
 app.factory('Instance', function(){
